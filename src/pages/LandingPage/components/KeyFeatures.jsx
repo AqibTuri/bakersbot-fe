@@ -77,7 +77,7 @@ const features = [
 
 const KeyFeatures = () => {
   return (
-    <div className="flex flex-col max-w-7xl items-center w-full gap-5">
+    <div className="flex flex-col max-w-7xl items-center w-full gap-5 text-center md:text-start">
       <h1 className="uppercase text-2xl font-bold">
         Our <span className="text-primary">Key Features</span>
       </h1>

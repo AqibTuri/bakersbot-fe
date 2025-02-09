@@ -2,9 +2,9 @@ import PopularPng from "../../../assets/popularPng.png";
 
 const PopularSection = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 max-w-7xl items-center">
+    <div className="flex flex-col md:flex-row gap-4 max-w-7xl items-center">
       <img src={PopularPng} className="max-w-md" alt="Popular" />
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 text-center md:text-start">
         <h1 className="uppercase text-2xl font-bold">
           The Most <span className="text-primary"> Popular Sniping Bot</span>{" "}
           And There’s a Reason for It

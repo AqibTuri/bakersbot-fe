@@ -1,9 +1,9 @@
 import PerformancePng from "../../../assets/performanceSection.png";
 const PerformanceSection = () => {
   return (
-    <div className="flex flex-col sm:flex-row items-center gap-5 max-w-7xl">
+    <div className="flex flex-col md:flex-row items-center gap-5 max-w-7xl">
       <img src={PerformancePng} alt="Performance" className="max-w-xl" />
-      <div>
+      <div className="text-center md:text-start">
         <h1 className="uppercase text-2xl font-bold">
           Unmatched <span className="text-primary"> Results</span>, Unbeatable{" "}
           <span className="text-primary">Performance</span>, and

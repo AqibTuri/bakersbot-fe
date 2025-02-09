@@ -4,8 +4,8 @@ import Ground from "../../../assets/ground.svg";
 
 const Coins = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 max-w-7xl items-center mb-[5rem]">
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col md:flex-row gap-4 max-w-7xl items-center mb-[5rem]">
+      <div className="flex flex-col gap-4 text-center md:text-start">
         <h1 className="uppercase text-2xl font-bold">
           It’s <span className="text-primary"> 1 million coins a month</span>
         </h1>

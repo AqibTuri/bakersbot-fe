@@ -3,8 +3,8 @@ import { Button } from "@mui/material";
 import JoinFamilySvg from "../../../assets/JoinFamily.svg";
 const JoinFamilySection = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 items-center max-w-7xl">
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col md:flex-row gap-4 items-center max-w-7xl">
+      <div className="flex flex-col gap-4 text-center md:text-start">
         <h1 className="uppercase text-2xl font-bold">
           <span className="text-primary">Join the Family</span> Your Success is
           Our Success
@@ -20,7 +20,7 @@ const JoinFamilySection = () => {
           need. Together,{" "}
           <span className="text-primary">we’re building something bigger</span>.
         </span>
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 items-center justify-center md:justify-start">
           <Button endIcon={<ArrowForwardIosIcon />}>Join Now</Button>
           <Button endIcon={<ArrowForwardIosIcon />}>Read More</Button>
           <span>Still Not Convinced?</span>

@@ -4,14 +4,14 @@ import IntroSectionSvg from "../../../assets/introSection.svg";
 
 const IntroSection = () => {
   return (
-    <div className="flex flex-col sm:flex-row items-center max-w-7xl">
-      <div className="flex flex-col gap-4">
-        <h1 className="uppercase text-2xl font-bold">
+    <div className="flex flex-col md:flex-row items-center max-w-7xl">
+      <div className="flex flex-col items-center md:items-start gap-4">
+        <h1 className="uppercase text-2xl font-bold text-center md:text-start">
           You'll
           <span className="text-primary"> Make a Million</span> Coins, But
           That's Just the Beginning.
         </h1>
-        <span>
+        <span className="text-center md:text-start">
           Tired of seeing those insane teams?{" "}
           <span className="text-primary"> Tired of your pack luck?</span> Tired
           of relying on the game? Want Mbappe on your team? With Baker's Bot,

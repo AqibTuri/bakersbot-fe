@@ -4,10 +4,10 @@ import ReadySnipeSvg from "../../../assets/readySnipe.svg";
 
 const ReadySnipe = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-5 bg-black p-10 border-primary border-2 rounded-[8px] items-center max-w-7xl">
+    <div className="flex flex-col md:flex-row gap-5 bg-black p-10 border-primary border-2 rounded-[8px] items-center max-w-7xl">
       <img src={ReadySnipeSvg} alt="Intro" className="w-lg" />
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 text-center md:text-start">
         <h1 className="text-2xl text-bold">Ready to Join the Family?</h1>
         <span>
           Purchase Baker’s Bot today and{" "}
@@ -16,7 +16,7 @@ const ReadySnipe = () => {
           <span className="text-primary">usage goes into the next game.</span>
         </span>
         <span>£25.50</span>
-        <div className="flex gap-5">
+        <div className="flex gap-5 justify-center md:justify-start">
           <Button endIcon={<ArrowForwardIosIcon />}>Buy Now</Button>
           <Button
             variant="outlined"

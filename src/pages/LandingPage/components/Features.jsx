@@ -1,5 +1,6 @@
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button, Divider } from "@mui/material";
+import { useState } from "react";
 
 const features = [
   {
@@ -29,6 +30,8 @@ const features = [
 ];
 
 const Features = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-7xl">
       <h1 className="uppercase text-2xl font-bold">
