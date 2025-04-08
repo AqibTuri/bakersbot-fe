@@ -12,7 +12,6 @@ import ReadySnipe from "./components/ReadySnipe.jsx";
 const LandingPage = () => {
   return (
     <div className="max-w-full flex flex-col gap-10 justify-center items-center">
-      <Navbar />
       <IntroSection />
       <Features />
       <PerformanceSection />
@@ -21,7 +20,6 @@ const LandingPage = () => {
       <Coins />
       <KeyFeatures />
       <ReadySnipe />
-      <Footer />
     </div>
   );
 };
