@@ -11,31 +11,31 @@ const Navbar = () => (
         <div className="">
           <div className="flex space-x-4">
             <a
-              href="#"
+              href="/"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Home
             </a>
             <a
-              href="#"
+              href="/pre-purchase"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Purchase
             </a>
             <a
-              href="#"
+              href="/faqs"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               FAQs
             </a>
             <a
-              href="#"
+              href="/contact-us"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Contact Us
             </a>
             <a
-              href="#"
+              href="/login"
               className="rounded-md bg-primary px-5 py-2 text-sm font-medium text-white"
               aria-current="page"
             >

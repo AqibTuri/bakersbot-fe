@@ -7,6 +7,9 @@ import LandingPage from "../pages/LandingPage/index.jsx";
 import PostPurchase from "../pages/PostPurchase/index.jsx";
 import PrePurchase from "../pages/PrePurchase/index.jsx";
 import Dashboard from "../pages/Dashboard/index.jsx";
+import PrivacyPolicy from "../pages/PrivacyPolicy/index.jsx";
+import RefundPolicy from "../pages/RefundPolicy/index.jsx";
+import TermsConditions from "../pages/TermsConditions/index.jsx";
 
 const AppRoutes = () => {
   return (
@@ -61,7 +64,40 @@ const AppRoutes = () => {
         }
       />
 
-      <Route path="/login" element={<Login />} />
+      <Route
+        path="/terms-conditions"
+        element={
+          <BasicLayout>
+            <TermsConditions />
+          </BasicLayout>
+        }
+      />
+      <Route
+        path="/privacy-policy"
+        element={
+          <BasicLayout>
+            <PrivacyPolicy />
+          </BasicLayout>
+        }
+      />
+
+      <Route
+        path="/refund-policy"
+        element={
+          <BasicLayout>
+            <RefundPolicy />
+          </BasicLayout>
+        }
+      />
+
+      <Route
+        path="/login"
+        element={
+          <BasicLayout>
+            <Login />
+          </BasicLayout>
+        }
+      />
     </Routes>
   );
 };
