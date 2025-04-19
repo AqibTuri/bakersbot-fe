@@ -10,6 +10,7 @@ import Dashboard from "../pages/Dashboard/index.jsx";
 import PrivacyPolicy from "../pages/PrivacyPolicy/index.jsx";
 import RefundPolicy from "../pages/RefundPolicy/index.jsx";
 import TermsConditions from "../pages/TermsConditions/index.jsx";
+import { PrivateRoute } from "./PrivateRoute.jsx";
 
 const AppRoutes = () => {
   return (
@@ -25,25 +26,25 @@ const AppRoutes = () => {
       <Route
         path="/pre-purchase"
         element={
-          <BasicLayout>
+          <PrivateRoute>
             <PrePurchase />
-          </BasicLayout>
+          </PrivateRoute>
         }
       />
       <Route
         path="/post-purchase"
         element={
-          <BasicLayout>
+          <PrivateRoute>
             <PostPurchase />
-          </BasicLayout>
+          </PrivateRoute>
         }
       />
       <Route
         path="/dashboard"
         element={
-          <BasicLayout>
+          <PrivateRoute>
             <Dashboard />
-          </BasicLayout>
+          </PrivateRoute>
         }
       />
       <Route

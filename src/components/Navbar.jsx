@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../assets/logo.svg";
 
 const Navbar = () => (
@@ -10,37 +11,37 @@ const Navbar = () => (
         </div>
         <div className="">
           <div className="flex space-x-4">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Home
-            </a>
-            <a
-              href="/pre-purchase"
+            </Link>
+            <Link
+              to="/pre-purchase"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Purchase
-            </a>
-            <a
-              href="/faqs"
+            </Link>
+            <Link
+              to="/faqs"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               FAQs
-            </a>
-            <a
-              href="/contact-us"
+            </Link>
+            <Link
+              to="/contact-us"
               className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Contact Us
-            </a>
-            <a
-              href="/login"
+            </Link>
+            <Link
+              to="/login"
               className="rounded-md bg-primary px-5 py-2 text-sm font-medium text-white"
               aria-current="page"
             >
               Login
-            </a>
+            </Link>
           </div>
         </div>
       </div>

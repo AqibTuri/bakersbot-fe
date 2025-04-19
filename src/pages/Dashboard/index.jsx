@@ -7,10 +7,15 @@ import {
 } from "@mui/icons-material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button, Chip } from "@mui/material";
+import { useData } from "../../features/Context.jsx";
 
 export default function Dashboard() {
+  const { user } = useData();
+
+  console.log(user);
+
   return (
-    <div className="flex h-screen bg-black">
+    <div className="flex h-screen">
       {/* Main container with dark gradient background */}
       <div className="w-full max-w-6xl mx-auto my-4 rounded-3xl overflow-hidden bg-gradient-to-b from-gray-900 to-black border border-gray-800">
         <div className="flex flex-col md:flex-row h-full">
@@ -29,8 +34,8 @@ export default function Dashboard() {
                 <Chip
                   label={
                     <div className="flex gap-2">
-                      <Dot />
-                      <span>Active</span>
+                      <Dot color={user.valid ? "green" : "red"} />
+                      <span>{user.valid ? "Active" : "In-active"}</span>
                     </div>
                   }
                   className="absolute bottom-[-10px] right-[10%] !bg-[#031D0E] !text-white"
@@ -41,7 +46,7 @@ export default function Dashboard() {
             {/* User info */}
             <div className="text-center mb-6">
               <p className="text-gray-400 text-xs">Username:</p>
-              <p className="text-orange-500 font-bold">Tester</p>
+              <p className="text-orange-500 font-bold">{user.name}</p>
               <div className="mt-3">
                 <p className="text-gray-400 text-xs">Membership Valid Until</p>
                 <p className="text-white text-sm">Dec 31, 2024</p>
@@ -128,6 +133,8 @@ export default function Dashboard() {
   );
 }
 
-const Dot = () => (
-  <div className="bg-green-500 w-4 h-4 rounded-full border-2 border-black"></div>
+const Dot = ({ color = "green" }) => (
+  <div
+    className={`bg-${color}-500 w-4 h-4 rounded-full border-2 border-black`}
+  ></div>
 );

@@ -1,8 +1,11 @@
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import ReadySnipeSvg from "../../../assets/readySnipe.svg";
 
 const ReadySnipe = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col md:flex-row gap-5 bg-black p-10 border-primary border-2 rounded-[8px] items-center max-w-7xl">
       <img src={ReadySnipeSvg} alt="Intro" className="w-lg" />
@@ -17,9 +20,15 @@ const ReadySnipe = () => {
         </span>
         <span>£25.50</span>
         <div className="flex gap-5 justify-center md:justify-start">
-          <Button endIcon={<ArrowForwardIosIcon />}>Buy Now</Button>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            onClick={() => navigate("/pre-purchase")}
+          >
+            Buy Now
+          </Button>
           <Button
             variant="outlined"
+            onClick={() => navigate("/faqs")}
             endIcon={<ArrowForwardIosIcon />}
             className="!bg-transparent !border-primary"
           >

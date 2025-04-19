@@ -1,7 +1,9 @@
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import JoinFamilySvg from "../../../assets/JoinFamily.svg";
 const JoinFamilySection = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col md:flex-row gap-4 items-center max-w-7xl">
       <div className="flex flex-col gap-4 text-center md:text-start">
@@ -21,7 +23,12 @@ const JoinFamilySection = () => {
           <span className="text-primary">we’re building something bigger</span>.
         </span>
         <div className="flex gap-4 items-center justify-center md:justify-start">
-          <Button endIcon={<ArrowForwardIosIcon />}>Join Now</Button>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            onClick={() => navigate("/login")}
+          >
+            Join Now
+          </Button>
           <Button endIcon={<ArrowForwardIosIcon />}>Read More</Button>
           <span>Still Not Convinced?</span>
         </div>
