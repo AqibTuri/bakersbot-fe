@@ -1,6 +1,13 @@
 import { FormGroup, InputLabel, OutlinedInput } from "@mui/material";
 
-const CustomInput = ({ label, placeholder, ...rest }) => {
+const CustomInput = ({
+  label,
+  type = "text",
+  placeholder,
+  onInput,
+  value,
+  ...rest
+}) => {
   const { className } = rest;
   return (
     <FormGroup className={`${className} flex flex-col gap-2 w-full`}>
@@ -9,6 +16,9 @@ const CustomInput = ({ label, placeholder, ...rest }) => {
       </InputLabel>
       <OutlinedInput
         id={label}
+        type={type}
+        onInput={onInput}
+        value={value}
         placeholder={placeholder || `Enter Your ${label}`}
         classes={{
           input:

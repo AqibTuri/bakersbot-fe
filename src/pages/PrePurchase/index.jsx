@@ -1,11 +1,18 @@
 import { CheckBox } from "@mui/icons-material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button, Card, CardContent } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
-import Navbar from "../../components/Navbar.jsx";
-import Footer from "../../components/Footer.jsx";
+import DataServices from "../../features/DataServices.js";
 
 const PrePurchase = () => {
+  const navigate = useNavigate();
+
+  const handleCheckout = async () => {
+    const { data } = await DataServices.getPaymentLink();
+    if (data) window.location.href = data.data;
+  };
+
   return (
     <Card className="max-w-7xl w-full !bg-transparent">
       <CardContent className="flex w-full flex-col md:flex-row gap-4 bg-black !p-0">
@@ -30,7 +37,13 @@ const PrePurchase = () => {
           <h4>
             Before you complete your purchase, please take a moment to read
             through our{" "}
-            <span className="text-primary">[Terms and Conditions]</span>.
+            <span
+              className="text-primary"
+              onClick={() => navigate("/terms-conditions")}
+            >
+              Terms and Conditions
+            </span>
+            .
           </h4>
           <h4>
             We really appreciate your business and we know you'll love the
@@ -46,7 +59,11 @@ const PrePurchase = () => {
               <span className="text-primary">Terms and Conditions</span>.
             </span>
           </div>
-          <Button endIcon={<ArrowForwardIosIcon />} className="w-fit !p-4">
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            onClick={handleCheckout}
+            className="w-fit !p-4"
+          >
             GO TO CHECKOUT
           </Button>
         </div>

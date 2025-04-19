@@ -12,91 +12,61 @@ import RefundPolicy from "../pages/RefundPolicy/index.jsx";
 import TermsConditions from "../pages/TermsConditions/index.jsx";
 import { PrivateRoute } from "./PrivateRoute.jsx";
 
+const layoutRoutes = [
+  {
+    path: "/",
+    component: <LandingPage />,
+  },
+  {
+    path: "/login",
+    component: <Login />,
+  },
+  {
+    path: "/pre-purchase",
+    component: <PrePurchase />,
+  },
+  {
+    path: "/post-purchase",
+    component: <PostPurchase />,
+  },
+  {
+    path: "/contact-us",
+    component: <ContactUs />,
+  },
+  {
+    path: "/faqs",
+    component: <FAQPage />,
+  },
+  {
+    path: "/terms-conditions",
+    component: <TermsConditions />,
+  },
+  {
+    path: "/privacy-policy",
+    component: <PrivacyPolicy />,
+  },
+  {
+    path: "/refund-policy",
+    component: <RefundPolicy />,
+  },
+];
+
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <BasicLayout>
-            <LandingPage />
-          </BasicLayout>
-        }
-      />
-      <Route
-        path="/pre-purchase"
-        element={
-          <PrivateRoute>
-            <PrePurchase />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/post-purchase"
-        element={
-          <PrivateRoute>
-            <PostPurchase />
-          </PrivateRoute>
-        }
-      />
+      {layoutRoutes.map((route, index) => (
+        <Route
+          key={index}
+          path={route.path}
+          element={<BasicLayout>{route.component}</BasicLayout>}
+        />
+      ))}
       <Route
         path="/dashboard"
         element={
           <PrivateRoute>
             <Dashboard />
           </PrivateRoute>
-        }
-      />
-      <Route
-        path="/contact-us"
-        element={
-          <BasicLayout>
-            <ContactUs />
-          </BasicLayout>
-        }
-      />
-
-      <Route
-        path="/faqs"
-        element={
-          <BasicLayout>
-            <FAQPage />
-          </BasicLayout>
-        }
-      />
-
-      <Route
-        path="/terms-conditions"
-        element={
-          <BasicLayout>
-            <TermsConditions />
-          </BasicLayout>
-        }
-      />
-      <Route
-        path="/privacy-policy"
-        element={
-          <BasicLayout>
-            <PrivacyPolicy />
-          </BasicLayout>
-        }
-      />
-
-      <Route
-        path="/refund-policy"
-        element={
-          <BasicLayout>
-            <RefundPolicy />
-          </BasicLayout>
-        }
-      />
-
-      <Route
-        path="/login"
-        element={
-          <BasicLayout>
-            <Login />
-          </BasicLayout>
         }
       />
     </Routes>

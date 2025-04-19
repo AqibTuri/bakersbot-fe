@@ -1,8 +1,10 @@
 import { Button } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useNavigate } from "react-router-dom";
 import IntroSectionSvg from "../../../assets/introSection.svg";
 
 const IntroSection = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col md:flex-row items-center max-w-7xl">
       <div className="flex flex-col items-center md:items-start gap-4">
@@ -20,7 +22,12 @@ const IntroSection = () => {
           <span className="text-primary"> Join the family today.</span>
         </span>
         <div className="flex gap-4">
-          <Button endIcon={<ArrowForwardIosIcon />}>Purchase Now</Button>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            onClick={() => navigate("/pre-purchase")}
+          >
+            Purchase Now
+          </Button>
           <Button endIcon={<ArrowForwardIosIcon />}>Why Choose Us</Button>
         </div>
       </div>

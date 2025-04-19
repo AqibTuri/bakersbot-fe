@@ -7,12 +7,27 @@ import {
 } from "@mui/icons-material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button, Chip } from "@mui/material";
+import { useState } from "react";
 import { useData } from "../../features/Context.jsx";
 
-export default function Dashboard() {
-  const { user } = useData();
+const VIDEOS = [
+  {
+    title: "Setup Tutorial",
+    url: `${import.meta.env.VITE_VIDEO_SERVER}video/setup`,
+  },
+  {
+    title: "Usage Tutorial",
+    url: `${import.meta.env.VITE_VIDEO_SERVER}video/use`,
+  },
+  {
+    title: "Snipe Tutorial",
+    url: `${import.meta.env.VITE_VIDEO_SERVER}video/snipe`,
+  },
+];
 
-  console.log(user);
+export default function Dashboard() {
+  const [index, setIndex] = useState(0);
+  const { user } = useData();
 
   return (
     <div className="flex h-screen">
@@ -106,23 +121,37 @@ export default function Dashboard() {
             <div className="mb-4 flex gap-5 flex-col">
               <h3 className="text-white text-center text-lg font-bold">
                 Baker's Bot{" "}
-                <span className="text-orange-500">Setup Tutorial</span>
+                <span className="text-orange-500">{VIDEOS[index].title}</span>
               </h3>
 
               {/* Tutorial carousel */}
               <div className="relative">
-                <img
-                  src="src/assets/dashboard/image.png"
-                  alt="Soccer player"
-                  className="w-full h-full object-cover"
+                <video
+                  className="w-full h-64 rounded-lg"
+                  controls
+                  src={VIDEOS[index].url}
+                  type="video/mp4"
+                  autoPlay
+                  muted
+                  loop
                 />
 
                 {/* Carousel navigation */}
-                <button className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
-                  <ArrowBackIosNew width={2} />
+                <button
+                  className={`absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white ${index <= 0 ? "hidden" : ""}`}
+                >
+                  <ArrowBackIosNew
+                    width={2}
+                    onClick={() => setIndex((prev) => prev - 1)}
+                  />
                 </button>
-                <button className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
-                  <ArrowForwardIosIcon width={2} />
+                <button
+                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white ${index >= 2 ? "hidden" : ""}`}
+                >
+                  <ArrowForwardIosIcon
+                    width={2}
+                    onClick={() => setIndex((prev) => prev + 1)}
+                  />
                 </button>
               </div>
             </div>
