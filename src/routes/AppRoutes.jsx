@@ -1,7 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import BasicLayout from "../Layouts/BasicLayout.jsx";
+import ForgetPassword from "../pages/Authentication/ForgetPassword.jsx";
+import ForgetUsername from "../pages/Authentication/ForgetUsername.jsx";
 import Login from "../pages/Authentication/Login.jsx";
 import ContactUs from "../pages/ContactUs/index.jsx";
+import ChangePassword from "../pages/Dashboard/ChangePassword.jsx";
 import FAQPage from "../pages/Faqs/index.jsx";
 import LandingPage from "../pages/LandingPage/index.jsx";
 import PostPurchase from "../pages/PostPurchase/index.jsx";
@@ -49,6 +52,14 @@ const layoutRoutes = [
     path: "/refund-policy",
     component: <RefundPolicy />,
   },
+  {
+    path: "/forget-username",
+    component: <ForgetUsername />,
+  },
+  {
+    path: "/forget-pass",
+    component: <ForgetPassword />,
+  },
 ];
 
 const AppRoutes = () => {
@@ -66,6 +77,14 @@ const AppRoutes = () => {
         element={
           <PrivateRoute>
             <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/change-password"
+        element={
+          <PrivateRoute>
+            <ChangePassword />
           </PrivateRoute>
         }
       />

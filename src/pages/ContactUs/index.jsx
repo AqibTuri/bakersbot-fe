@@ -95,18 +95,30 @@ export default function ContactUs() {
           <div>
             <h3 className="p-3 font-medium">HOW TO PURCHASE</h3>
             <img
-              src="src/assets/Contact/purchase.png"
+              src="https://img.youtube.com/vi/o_64vhfMMRg/0.jpg"
               alt="How to purchase tutorial"
-              className="w-full rounded-lg"
+              className="w-full rounded-lg cursor-pointer"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/watch?v=o_64vhfMMRg",
+                  "_blank",
+                )
+              }
             />
           </div>
 
           <div>
             <h3 className="p-3 font-medium">HOW BAKER&apos;S BOT WORKS</h3>
             <img
-              src="src/assets/Contact/works.png"
+              src="https://img.youtube.com/vi/abrWskqeJZk/0.jpg"
               alt="How Baker's Bot works tutorial"
-              className="w-full rounded-lg"
+              className="w-full rounded-lg cursor-pointer"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/watch?v=abrWskqeJZk",
+                  "_blank",
+                )
+              }
             />
           </div>
         </div>

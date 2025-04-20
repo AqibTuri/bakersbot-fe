@@ -14,18 +14,21 @@ import { useData } from "../../features/Context.jsx";
 import DataServices from "../../features/DataServices.js";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-  const props = useData();
-  console.log(props);
-  const { user, setUser } = props;
+  const { user, setUser } = useData();
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     const { data } = (await DataServices.signin(formData)) ?? {};
-    setUser(data?.data);
+    setIsLoading(false);
+    if (data?.data && data?.status === "success") {
+      setUser(data?.data);
+    }
   };
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const Login = () => {
 
   return (
     <div className="max-w-7xl flex mx-auto justify-between items-center flex-col py-5 relative">
-      <Card className="w-2xl p-5 !bg-black !text-white !pb-10">
+      <Card className="w-md p-5 !bg-black !text-white !pb-10">
         <CardContent className="flex flex-col gap-5 items-center">
           <div className="flex flex-col items-center gap-5">
             <div className="flex items-center gap-5">
@@ -85,13 +88,21 @@ const Login = () => {
               }}
             />
           </FormGroup>
-          <Button className="w-xs !py-3" onClick={handleSubmit}>
-            Login
+          <Button
+            disabled={isLoading}
+            className="w-xs !py-3"
+            onClick={handleSubmit}
+          >
+            {isLoading ? (
+              <div className="animate-spin border-2 border-t-transparent rounded-full w-5 h-5"></div>
+            ) : (
+              <span>Login</span>
+            )}
           </Button>
         </CardContent>
         <CardActions className="flex flex-col gap-5">
-          <Link to="/register">Forgot Password?</Link>
-          <Link to="/register">Forgot Username?</Link>
+          <Link to="/forget-pass">Forgot Password?</Link>
+          <Link to="/forget-username">Forgot Username?</Link>
         </CardActions>
       </Card>
     </div>

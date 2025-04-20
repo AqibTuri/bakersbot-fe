@@ -1,9 +1,17 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const DataContext = createContext(null);
 
 const DataProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const savedUser = JSON.parse(
+    localStorage.getItem("bakersBotUserData") || null,
+  );
+  const [user, setUser] = useState(savedUser);
+
+  useEffect(() => {
+    localStorage.setItem("bakersBotUserData", JSON.stringify(user));
+  }, [user]);
+
   return (
     <DataContext.Provider value={{ user, setUser }}>
       {children}

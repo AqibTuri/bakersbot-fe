@@ -1,7 +1,7 @@
 import { CheckBox } from "@mui/icons-material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Button, Card, CardContent } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 import DataServices from "../../features/DataServices.js";
 
@@ -37,12 +37,9 @@ const PrePurchase = () => {
           <h4>
             Before you complete your purchase, please take a moment to read
             through our{" "}
-            <span
-              className="text-primary"
-              onClick={() => navigate("/terms-conditions")}
-            >
+            <Link className="text-primary" to="/terms-conditions">
               Terms and Conditions
-            </span>
+            </Link>
             .
           </h4>
           <h4>
@@ -52,7 +49,7 @@ const PrePurchase = () => {
           <span className="text-primary">
             100% secure checkout powered by Stripe.
           </span>
-          <div>
+          <div className="flex items-center gap-4">
             <CheckBox />
             <span>
               I have read and agree to the{" "}
