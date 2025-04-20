@@ -1,52 +1,127 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Link as RouterLink } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Drawer,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  Button,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../assets/logo.svg";
 
-const Navbar = () => (
-  <nav className="bg-none w-full">
-    <div className="px-2 sm:px-6 lg:px-20">
-      <div className="relative flex h-16 items-center justify-between">
-        <div className="flex gap-4 shrink-0 items-center">
-          <img className="h-8 w-auto" src={Logo} alt="Your Company" />
-          <span>BAKER'S BOT</span>
-        </div>
-        <div className="">
-          <div className="flex space-x-4">
-            <Link
-              to="/"
-              className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >
-              Home
-            </Link>
-            <Link
-              to="/pre-purchase"
-              className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >
-              Purchase
-            </Link>
-            <Link
-              to="/faqs"
-              className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >
-              FAQs
-            </Link>
-            <Link
-              to="/contact-us"
-              className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >
-              Contact Us
-            </Link>
-            <Link
-              to="/login"
-              className="rounded-md bg-primary px-5 py-2 text-sm font-medium text-white"
-              aria-current="page"
-            >
-              Login
-            </Link>
-          </div>
-        </div>
+const navItems = [
+  { text: "Home", to: "/" },
+  { text: "Purchase", to: "/pre-purchase" },
+  { text: "FAQs", to: "/faqs" },
+  { text: "Contact Us", to: "/contact-us" },
+];
+
+const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <div className="flex justify-center items-center mt-4">
+        <img src={Logo} alt="Logo" style={{ height: "30px" }} />
       </div>
-    </div>
-  </nav>
-);
+      <List>
+        {navItems.map((item) => (
+          <ListItem
+            button
+            key={item.text}
+            component={RouterLink}
+            to={item.to}
+            sx={{ textAlign: "center" }}
+          >
+            <ListItemText primary={item.text} />
+          </ListItem>
+        ))}
+        <Button
+          component={RouterLink}
+          to="/login"
+          variant="contained"
+          color="primary"
+        >
+          Login
+        </Button>
+      </List>
+    </Box>
+  );
+
+  return (
+    <>
+      <AppBar position="static" color="transparent" elevation={0}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
+          {/* Logo + Title */}
+          <Box display="flex" alignItems="center" gap={1}>
+            <img src={Logo} alt="Logo" style={{ height: "30px" }} />
+            <span className="font-bold">BAKER'S BOT</span>
+          </Box>
+
+          {/* Desktop Nav */}
+          {!isMobile && (
+            <Box>
+              {navItems.map((item) => (
+                <Link
+                  to={item.to}
+                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  {item.text}
+                </Link>
+              ))}
+              <Button
+                component={RouterLink}
+                to="/login"
+                variant="contained"
+                color="primary"
+                sx={{ ml: 2 }}
+              >
+                Login
+              </Button>
+            </Box>
+          )}
+
+          {/* Mobile Hamburger */}
+          {isMobile && (
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+        </Toolbar>
+      </AppBar>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="left"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true,
+        }}
+      >
+        {drawer}
+      </Drawer>
+    </>
+  );
+};
 
 export default Navbar;

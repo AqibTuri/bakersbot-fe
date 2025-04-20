@@ -2,3 +2,16 @@ body{
     background: #040A1B;
     color: #ffffff
 }
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FB530C;
+    border-radius: 10px;
+}

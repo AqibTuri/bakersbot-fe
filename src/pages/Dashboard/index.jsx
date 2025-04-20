@@ -58,9 +58,8 @@ export default function Dashboard() {
             className="rounded-lg"
             controls
             src={VIDEOS[index].url}
-            autoPlay
-            muted
-            loop
+            controlsList="nodownload"
+            playsInline
           />
 
           {/* Carousel navigation */}

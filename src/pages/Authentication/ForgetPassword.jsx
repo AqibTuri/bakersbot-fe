@@ -73,9 +73,9 @@ const ForgetPassword = () => {
               <span>BAKER'S BOT</span>
             </div>
             <span className="text-center">
-              This login page is for customers who have purchased Baker's Bot.
-              If you're not a customer yet, login access is provided upon
-              purchase completion.
+              This page allows you to reset your password using an OTP sent to
+              your email. Please follow the steps to securely change your
+              password.
             </span>
           </div>
           <h1 className="w-full text-center text-2xl text-bold">

@@ -5,6 +5,7 @@ import ForgetUsername from "../pages/Authentication/ForgetUsername.jsx";
 import Login from "../pages/Authentication/Login.jsx";
 import ContactUs from "../pages/ContactUs/index.jsx";
 import ChangePassword from "../pages/Dashboard/ChangePassword.jsx";
+import Review from "../pages/Dashboard/Review.jsx";
 import FAQPage from "../pages/Faqs/index.jsx";
 import LandingPage from "../pages/LandingPage/index.jsx";
 import PostPurchase from "../pages/PostPurchase/index.jsx";
@@ -62,6 +63,21 @@ const layoutRoutes = [
   },
 ];
 
+const privateRoutes = [
+  {
+    path: "/dashboard",
+    component: <Dashboard />,
+  },
+  {
+    path: "/change-password",
+    component: <ChangePassword />,
+  },
+  {
+    path: "/review",
+    component: <Review />,
+  },
+];
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -72,22 +88,14 @@ const AppRoutes = () => {
           element={<BasicLayout>{route.component}</BasicLayout>}
         />
       ))}
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/change-password"
-        element={
-          <PrivateRoute>
-            <ChangePassword />
-          </PrivateRoute>
-        }
-      />
+
+      {privateRoutes.map((route, index) => (
+        <Route
+          key={index}
+          path={route.path}
+          element={<PrivateRoute>{route.component}</PrivateRoute>}
+        />
+      ))}
     </Routes>
   );
 };

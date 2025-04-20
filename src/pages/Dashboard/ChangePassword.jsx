@@ -1,15 +1,13 @@
 import {
   Button,
   Card,
-  CardActions,
   CardContent,
   FormGroup,
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useData } from "../../features/Context.jsx";
 import DataServices from "../../features/DataServices.js";
 
@@ -20,9 +18,8 @@ const ChangePassword = () => {
     confirmPassword: "",
   });
   const props = useData();
-  const { user, setUser } = props;
+  const { user } = props;
   const navigate = useNavigate();
-  const [step, setStep] = useState("EMAIL");
 
   const handleResetSubmit = async () => {
     if (formData.newPassword !== formData.confirmPassword) {
