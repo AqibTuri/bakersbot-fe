@@ -33,7 +33,6 @@ export default function AppLayout({ children }) {
 
   const handleLogout = () => {
     setUser(null);
-    window.location.href = "/login";
   };
 
   return (
